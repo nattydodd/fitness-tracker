@@ -101,7 +101,7 @@ export default class AddEntry extends Component {
                 : <UdaciSteppers
                     value={value}
                     onIncrement={() => this.increment(key)}
-                    onDecrement={() => this.increment(key)}
+                    onDecrement={() => this.decrement(key)}
                     {...rest}
                   />
               }
