@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  ScrollView,
   View,
   Text,
   TouchableOpacity
@@ -10,6 +11,7 @@ import UdaciSteppers from './UdaciSteppers';
 import DateHeader from './DateHeader';
 import { Ionicons } from '@expo/vector-icons';
 import TextButton from './TextButton';
+import { submitEntry, removeEntry } from '../utils/api';
 
 function SubmitBtn({ onPress }) {
   return (
@@ -76,7 +78,7 @@ export default class AddEntry extends Component {
 
     // Navigate to Home
 
-    // Save to DB
+    submitEntry({ key, entry });
 
     // Clear local notification
   }
@@ -88,7 +90,7 @@ export default class AddEntry extends Component {
 
     // Route to Home
 
-    // Update DB
+    removeEntry({ key });
   }
 
   render() {
@@ -110,7 +112,7 @@ export default class AddEntry extends Component {
     }
 
     return (
-      <View>
+      <ScrollView>
         <DateHeader date={(new Date().toLocaleDateString())}/>
         {Object.keys(metaInfo).map(key => {
           const { getIcon, type, ...rest } = metaInfo[key]
@@ -136,7 +138,7 @@ export default class AddEntry extends Component {
           )
         })}
         <SubmitBtn onPress={this.submit} />
-      </View>
+      </ScrollView>
     )
   }
 }
