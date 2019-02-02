@@ -11,6 +11,7 @@ import { fontAwesome, Ionicons } from '@expo/vector-icons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Constants } from 'expo';
 import EntryDetail from './components/EntryDetail';
+import Live from './components/Live';
 
 function UdaciStatusBar({ backgroundColor, ...props }) {
   return (
@@ -33,6 +34,13 @@ const Tabs = TabNavigator({
     navigationOptions: {
       tabBarLabel: 'AddEntry',
       tabBarIcon: ({ tintColor }) => <FontAwesome name='plus-square' size={30} color={tintColor} />
+    }
+  },
+  Live: {
+    screen: Live,
+    navigationOptions: {
+      tabBarLabel: 'Live',
+      tabBarIcon: ({ tintColor }) =><Ionicons name='ios-speedometer' size={30} color={tintColor} />
     }
   }
 }, {
